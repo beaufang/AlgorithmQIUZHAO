@@ -42,7 +42,7 @@ Queue 是一个接口，其子类主要有：
 
 在 Queue 中定义了队列的基本操作：
 
-![image-20200718180053392](C:/Users/fangb/AppData/Roaming/Typora/typora-user-images/image-20200718180053392.png)
+![image-20200718180053392](../resources/image-20200718180053392.png)
 
 * `remove` 方法，如果队列为空，会抛出异常。`poll` 和 `peek`  方法会返回 `null`。
 * 当队列已满时，`add` 方法会抛出 `IllegalStateException` 异常，`offer`  方法会直接抛出 `Exception`
