@@ -95,12 +95,14 @@ public class WordSearchII_2 {
 
 ```java
 public int binBfs(Node start, Node target) {
+    if (start == target) return 0;
     Set<Node> q1 = new HashSet<>();
     Set<Node> q2 = new HashSet<>();
     Set<Node> visited = new HashSet<>();
     q1.add(start);
     q2.add(target);
     visited.add(start);
+    visited.add(target);
     int step = 0;
     while (!q1.isEmpty() && !q2.isEmpty()) {
         // 总是从较小的一端处理
@@ -112,14 +114,14 @@ public int binBfs(Node start, Node target) {
         // 用于存储下一层的节点
         Set<Node> nextLevel = new HashSet<>();
         for (Node cur : q1) {
-            // 两端相交
-            if (q2.contains(cur)) {
-                return  step;
-            }
+
             if (cur.children == null) {
                 continue;
             }
             for (Node child : cur.children) {
+                if (q2.contains(child)) {
+                    return  step + 1;
+                }
                 if (!visited.contains(child)) {
                     nextLevel.add(child);
                 }
